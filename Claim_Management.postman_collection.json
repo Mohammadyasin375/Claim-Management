@@ -1,0 +1,375 @@
+{
+	"info": {
+		"_postman_id": "54625474-5925-4b9c-bdfd-4128cfd332dd",
+		"name": "Claim_Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Member",
+			"item": [
+				{
+					"name": "POST-AddMember",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"memberName\":\"Yasin Mohammad\",\r\n    \"dob\":\"2000-12-01\",\r\n    \"mobileNo\":\"7674094652\",\r\n    \"city\":\"Hyderabad\",\r\n    \"state\":\"Telangana\",\r\n    \"hNo\":\"1-110/B\",\r\n    \"user\":{\r\n        \"username\":\"yasin@gmail.com\",\r\n        \"password\":\"yasin@123\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8091/api/member/add/3"
+					},
+					"response": []
+				},
+				{
+					"name": "GET-getMember",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "yasin@123",
+								"username": "yasin@gmail.com"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8091/api/member/get"
+					},
+					"response": []
+				},
+				{
+					"name": "GET-getAllMembers",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "waesly@123",
+								"username": "ronald@gmail.com"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8091/api/member/getAll"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT-updateMemberDetails",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "yasin@123",
+								"username": "yasin@gmail.com"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"memberName\":\"Mohammad Yasin Uddin Quadri\",\r\n    \"dob\":\"2000-12-01\",\r\n    \"mobileNo\":\"7674094652\",\r\n    \"city\":\"Warangal\",\r\n    \"state\":\"Telangana\",\r\n    \"hNo\":\"1-137/C\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8091/api/member/update"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT-changePlan",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "yasin@123",
+								"username": "yasin@gmail.com"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"url": "http://localhost:8091/api/member/changePlan/3/10"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Claim",
+			"item": [
+				{
+					"name": "POST-InsertClaim",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "yasin@123",
+								"username": "yasin@gmail.com"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"claimAmount\":150000.0,\r\n    \"claimType\":\"Dengue\",\r\n    \"claimDate\":\"2023-06-12\",\r\n    \"hospitalName\":\"Cooper Hospital\",\r\n    \"admitDate\":\"2023-03-12\",\r\n    \"dischargeDate\":\"2023-06-03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8091/api/claim/add"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT-editClaimDetails",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "potter@123",
+								"username": "harry@gmail.com"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"claimAmount\":100000.0,\r\n    \"claimDate\":\"2023-01-12\",\r\n    \"claimType\":\"Accident\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8091/api/claim/edit/8"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE-deleteClaimById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "salman@123",
+								"username": "salman@gmail.com"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8091/api/claim/delete/11"
+					},
+					"response": []
+				},
+				{
+					"name": "GET-getClaimById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "potter@123",
+								"username": "harry@gmail.com"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8091/api/claim/10"
+					},
+					"response": []
+				},
+				{
+					"name": "GET-getAllClaims",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "yasin@123",
+								"username": "yasin@gmail.com"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8091/api/claim/getAllByUsername"
+					},
+					"response": []
+				},
+				{
+					"name": "POST-UploadDocument",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/user/Downloads/Exam/Final Spring Cloud.pdf"
+								}
+							]
+						},
+						"url": "http://localhost:8091/api/claim/upload"
+					},
+					"response": []
+				},
+				{
+					"name": "GET-View Uploaded Document",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "http://localhost:8091/api/claim/document/8"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Plan",
+			"item": [
+				{
+					"name": "GET-getAllPlans",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "waesly@123",
+								"username": "ronald@gmail.com"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8091/api/plan/getAll"
+					},
+					"response": []
+				},
+				{
+					"name": "POST-AddPlan",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "waesly@123",
+								"username": "ronald@gmail.com"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"planName\":\"Life Insurance\",\r\n    \"insuredAmount\":150000.0,\r\n    \"startDate\":\"2022-12-10\",\r\n    \"endDate\":\"2023-12-10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8091/api/plan/add"
+					},
+					"response": []
+				},
+				{
+					"name": "GET-getPlanById",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "yasin@123",
+								"username": "yasin@gmail.com"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8091/api/plan/3"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "POST-addAdmin",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Ronald Waesly\",\r\n    \"user\":{\r\n        \"username\":\"ronald@gmail.com\",\r\n        \"password\":\"waesly@123\"  \r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8091/api/admin/add"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT-Admin_Claim_Approval",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "waesly@123",
+								"username": "ronald@gmail.com"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8091/api/admin/approval/APPROVED/4"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET-Login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "waesly@123",
+						"username": "ronald@gmail.com"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8091/api/user/login"
+			},
+			"response": []
+		}
+	]
+}
