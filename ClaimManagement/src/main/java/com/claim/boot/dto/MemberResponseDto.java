@@ -7,10 +7,9 @@ public class MemberResponseDto {
 	private String memberName;
 	private LocalDate dob;
 	private String mobileNo;
-	private String hNo;
+	private String address;
 	private String city;
 	private String state;
-	
 	public Long getMemberId() {
 		return memberId;
 	}
@@ -35,11 +34,11 @@ public class MemberResponseDto {
 	public void setMobileNo(String mobileNo) {
 		this.mobileNo = mobileNo;
 	}
-	public String gethNo() {
-		return hNo;
+	public String getAddress() {
+		return address;
 	}
-	public void sethNo(String hNo) {
-		this.hNo = hNo;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public String getCity() {
 		return city;
@@ -53,6 +52,4 @@ public class MemberResponseDto {
 	public void setState(String state) {
 		this.state = state;
 	}
-	
-	
 }

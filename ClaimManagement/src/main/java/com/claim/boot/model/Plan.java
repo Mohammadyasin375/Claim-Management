@@ -7,7 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
 public class Plan {
@@ -20,6 +23,9 @@ public class Plan {
 	private double insuredAmount;
 	private LocalDate startDate;
 	private LocalDate endDate;
+	
+	@ManyToOne
+	private Member member;
 
 	public long getPlanId() {
 		return planId;
@@ -61,24 +67,14 @@ public class Plan {
 		this.endDate = endDate;
 	}
 
-	public Plan() {
-		super();
-		// TODO Auto-generated constructor stub
+	public Member getMember() {
+		return member;
 	}
 
-	public Plan(long planId, String planName, double insuredAmount, LocalDate startDate, LocalDate endDate) {
-		super();
-		this.planId = planId;
-		this.planName = planName;
-		this.insuredAmount = insuredAmount;
-		this.startDate = startDate;
-		this.endDate = endDate;
+	public void setMember(Member member) {
+		this.member = member;
 	}
-
-	@Override
-	public String toString() {
-		return "Plan [planId=" + planId + ", planName=" + planName + ", insuredAmount=" + insuredAmount + ", startDate="
-				+ startDate + ", endDate=" + endDate + "]";
-	}
+	
+	
 
 }

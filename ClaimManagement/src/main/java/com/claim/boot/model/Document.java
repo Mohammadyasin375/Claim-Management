@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Document {
@@ -18,6 +19,19 @@ public class Document {
 	
 	@Lob
 	private byte[] data;
+	
+	@ManyToOne
+	private Claim claim;
+	
+	
+
+	public Claim getClaim() {
+		return claim;
+	}
+
+	public void setClaim(Claim claim) {
+		this.claim = claim;
+	}
 
 	public Long getDocumentId() {
 		return documentId;

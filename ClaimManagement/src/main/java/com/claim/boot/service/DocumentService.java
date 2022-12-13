@@ -4,10 +4,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.claim.boot.model.Claim;
 import com.claim.boot.model.Document;
+import com.claim.boot.repository.ClaimRepository;
 import com.claim.boot.repository.DocumentRepository;
 
 @Service
@@ -16,11 +20,30 @@ public class DocumentService {
 	@Autowired
 	private DocumentRepository documentRepository;
 
-	public Document saveFile(MultipartFile file) {
+	@Autowired
+	private ClaimRepository claimRepository;
+
+	public ResponseEntity<String> saveFile(MultipartFile file, Long cId) {
 		String docName = file.getOriginalFilename();
 		try {
 			Document document = new Document(docName, file.getContentType(), file.getBytes());
-			return documentRepository.save(document);
+			
+			 
+
+		       double size = (file.getSize()) / 1024;
+		        if (size > 200.0)
+		            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("File size should beless than 200KB!");
+		        
+			Optional<Claim> optional = claimRepository.findById(cId);
+
+			if (!optional.isPresent())
+				return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Claim ID is Invalid");
+
+			Claim claim = optional.get();
+			document.setClaim(claim);
+
+			documentRepository.save(document);
+			return ResponseEntity.status(HttpStatus.OK).body("Docs upload successfully");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

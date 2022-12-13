@@ -36,8 +36,19 @@ public class Claim {
 	private String remarks = "";
 	private LocalDate claimDate;
 	
-	@OneToOne()
-	private Document document;
+	@ManyToOne
+	private Plan plan;
+	
+	
+	
+
+	public Plan getPlan() {
+		return plan;
+	}
+
+	public void setPlan(Plan plan) {
+		this.plan = plan;
+	}
 
 	public long getClaimId() {
 		return claimId;
@@ -119,41 +130,7 @@ public class Claim {
 		this.claimDate = claimDate;
 	}
 
-	public Document getDocument() {
-		return document;
-	}
 
-	public void setDocument(Document document) {
-		this.document = document;
-	}
 
-	public Claim() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Claim(long claimId, Member member, ClaimStatusEnum status, double claimAmount, String hospitalName,
-			LocalDate admitDate, LocalDate dischargeDate, String claimType, String remarks, LocalDate claimDate,
-			Document document) {
-		super();
-		this.claimId = claimId;
-		this.member = member;
-		this.status = status;
-		this.claimAmount = claimAmount;
-		this.hospitalName = hospitalName;
-		this.admitDate = admitDate;
-		this.dischargeDate = dischargeDate;
-		this.claimType = claimType;
-		this.remarks = remarks;
-		this.claimDate = claimDate;
-		this.document = document;
-	}
-
-	@Override
-	public String toString() {
-		return "Claim [claimId=" + claimId + ", member=" + member + ", status=" + status + ", claimAmount="
-				+ claimAmount + ", hospitalName=" + hospitalName + ", admitDate=" + admitDate + ", dischargeDate="
-				+ dischargeDate + ", claimType=" + claimType + ", remarks=" + remarks + ", claimDate=" + claimDate
-				+ ", document=" + document + "]";
-	}
+	
 }
