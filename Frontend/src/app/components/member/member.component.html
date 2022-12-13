@@ -1,0 +1,24 @@
+<div>
+    <div class="row">
+        <div class="col-md-3 sidebar">
+          <div >
+              <img src="../../../assets/images/user.png" class="user-logo">
+  
+              <span class="welcome-msg"> Welcome {{member?.memberName}} </span>
+          </div>
+          <div>
+            <br>
+            <ul >
+              <li><a class="list-group-item" routerLink="/member/profile">Profile</a> </li>
+              <li>  <a class="list-group-item" routerLink="/member/apply-claim">Claims</a>  </li>
+              <li> <a class="list-group-item" routerLink="/member/view-plans">View Plans</a>  </li>
+              <li> <a class="list-group-item" routerLink="/member/add-plan">Add Plan</a>  </li>
+            </ul>
+          </div>
+  
+        </div>
+        <div class="col-md-9">
+          <router-outlet></router-outlet>
+        </div>
+    </div>
+  </div>

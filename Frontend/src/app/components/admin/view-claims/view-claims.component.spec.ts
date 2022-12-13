@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ApproveClaimComponent } from './approve-claim.component';
+import { ViewClaimsComponent } from './view-claims.component';
 
-describe('ApproveClaimComponent', () => {
-  let component: ApproveClaimComponent;
-  let fixture: ComponentFixture<ApproveClaimComponent>;
+describe('ViewClaimsComponent', () => {
+  let component: ViewClaimsComponent;
+  let fixture: ComponentFixture<ViewClaimsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ApproveClaimComponent ]
+      declarations: [ ViewClaimsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ApproveClaimComponent);
+    fixture = TestBed.createComponent(ViewClaimsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

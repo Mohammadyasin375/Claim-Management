@@ -23,11 +23,11 @@ export class SignUpComponent implements OnInit {
       username: new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]),
       password: new FormControl('', [Validators.required,Validators.minLength(5), Validators.maxLength(15), Validators.pattern(/^[a-zA-Z0-9@%_]+$/)]),
       repassword: new FormControl('', [Validators.required]),
-      dob: new FormControl('', [Validators.required, Validators.pattern(/[0-9]/)]),
-      hNo: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9 ]-+$/)]),
+      dob: new FormControl('',[Validators.required]),
+      address: new FormControl('', [Validators.required, Validators.pattern('/^[a-zA-Z]+$/')]),
       state: new FormControl('', [Validators.required, Validators.pattern(/[a-zA-Z ]/)]),
       city: new FormControl('', [Validators.required, Validators.pattern(/[a-zA-Z ]/)]),
-      mobileNo: new FormControl('', [Validators.required, Validators.pattern(/[0-9]/)]),
+      mobileNo: new FormControl('', [Validators.required, Validators.pattern("^[0-9]{10}$")]),
     });
   }
 
@@ -43,7 +43,7 @@ export class SignUpComponent implements OnInit {
       mobileNo: this.signUpForm.value.mobileNo,
       state: this.signUpForm.value.state,
       city: this.signUpForm.value.city,
-      hNo: this.signUpForm.value.hNo
+      address: this.signUpForm.value.address
     };
     /* password is == repassword */
     let repassword = this.signUpForm.value.repassword;

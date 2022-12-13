@@ -8,5 +8,5 @@ export class Member{
   mobileNo?: number;
   city?: string;
   state?: string;
-  hNo?: string;
+  address?: string;
 }
