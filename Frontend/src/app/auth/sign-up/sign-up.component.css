@@ -1,0 +1,31 @@
+.signup{
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  
+  .signup-section{
+    background-color: lightgray;
+  }
+  
+  .error_msg{
+    color: red;
+    font-size: small;
+  }
+
+  .password-container{
+    width: 400px;
+    position: relative;
+  }
+  .password-container input[type="password"],
+  .password-container input[type="text"]{
+    width: 100%;
+    padding: 12px 36px 12px 12px;
+    box-sizing: border-box;
+  }
+  .fa-eye{
+    position: absolute;
+    top: 28%;
+    right: 4%;
+    cursor: pointer;
+    color: lightgray;
+  }
