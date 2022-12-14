@@ -19,19 +19,6 @@ public class Document {
 	
 	@Lob
 	private byte[] data;
-	
-	@ManyToOne
-	private Claim claim;
-	
-	
-
-	public Claim getClaim() {
-		return claim;
-	}
-
-	public void setClaim(Claim claim) {
-		this.claim = claim;
-	}
 
 	public Long getDocumentId() {
 		return documentId;
@@ -76,4 +63,5 @@ public class Document {
 		this.docType = docType;
 		this.data = data;
 	}
+	
 }

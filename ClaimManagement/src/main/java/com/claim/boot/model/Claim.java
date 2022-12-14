@@ -32,23 +32,12 @@ public class Claim {
 	private String hospitalName;
 	private LocalDate admitDate;
 	private LocalDate dischargeDate;
-	private String claimType;
 	private String remarks = "";
 	private LocalDate claimDate;
 	
 	@ManyToOne
 	private Plan plan;
-	
-	
-	
 
-	public Plan getPlan() {
-		return plan;
-	}
-
-	public void setPlan(Plan plan) {
-		this.plan = plan;
-	}
 
 	public long getClaimId() {
 		return claimId;
@@ -106,14 +95,6 @@ public class Claim {
 		this.dischargeDate = dischargeDate;
 	}
 
-	public String getClaimType() {
-		return claimType;
-	}
-
-	public void setClaimType(String claimType) {
-		this.claimType = claimType;
-	}
-
 	public String getRemarks() {
 		return remarks;
 	}
@@ -130,7 +111,12 @@ public class Claim {
 		this.claimDate = claimDate;
 	}
 
+	public Plan getPlan() {
+		return plan;
+	}
 
+	public void setPlan(Plan plan) {
+		this.plan = plan;
+	}
 
-	
 }

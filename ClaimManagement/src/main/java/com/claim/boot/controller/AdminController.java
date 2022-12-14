@@ -30,9 +30,6 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 
-	@Autowired
-	private ClaimService claimService;
-
 	@PostMapping("/add")
 	public Admin addAdmin(@RequestBody Admin admin) {
 
@@ -46,7 +43,7 @@ public class AdminController {
 
 	@PutMapping("/approval/{status}/{cId}")
 	public ResponseEntity<String> approveClaim(@PathVariable("status") String status, @PathVariable("cId") Long cId) {
-		return claimService.approveClaim(status, cId);
+		return adminService.approveClaim(status, cId);
 	}
 
 	@GetMapping("/details")

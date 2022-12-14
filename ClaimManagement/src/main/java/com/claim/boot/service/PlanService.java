@@ -1,7 +1,7 @@
 package com.claim.boot.service;
 
 import java.security.Principal;
-
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.claim.boot.dto.PlanResponseDto;
 import com.claim.boot.model.Member;
 import com.claim.boot.model.Plan;
 import com.claim.boot.repository.MemberRepository;
@@ -39,11 +40,22 @@ public class PlanService {
 		return ResponseEntity.status(HttpStatus.OK).body("Plan added Successfully");
 
 	}
-	
-	public List<Plan>getAllPlansByUsername(String username){
-		List<Plan>list=planRepository.getAllPlansByUsername(username);
-		
-		return list;
+
+	public List<PlanResponseDto> getAllPlansByUsername(String username) {
+		List<Plan> list = planRepository.getAllPlansByUsername(username);
+
+		List<PlanResponseDto> listDto = new ArrayList<>();
+		Long id;
+		for (Plan p : list) {
+			PlanResponseDto dto = new PlanResponseDto();
+			dto.setPlanId(p.getPlanId());
+			dto.setInsuredAmount(p.getInsuredAmount());
+			dto.setStartDate(p.getStartDate());
+			dto.setPlanType(p.getPlanType().toString());
+			dto.setEndDate(p.getEndDate());
+			listDto.add(dto);
+		}
+		return listDto;
 	}
 
 }

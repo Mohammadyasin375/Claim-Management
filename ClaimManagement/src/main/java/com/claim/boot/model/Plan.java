@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +14,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.ManyToAny;
 
+import com.claim.boot.enums.PlanTypeEnum;
+
 @Entity
 public class Plan {
 	
@@ -19,7 +23,9 @@ public class Plan {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long planId;
 	
-	private String planName;
+	@Enumerated(EnumType.STRING)
+	private PlanTypeEnum planType;
+	
 	private double insuredAmount;
 	private LocalDate startDate;
 	private LocalDate endDate;
@@ -35,12 +41,12 @@ public class Plan {
 		this.planId = planId;
 	}
 
-	public String getPlanName() {
-		return planName;
+	public PlanTypeEnum getPlanType() {
+		return planType;
 	}
 
-	public void setPlanName(String planName) {
-		this.planName = planName;
+	public void setPlanType(PlanTypeEnum planType) {
+		this.planType = planType;
 	}
 
 	public double getInsuredAmount() {
@@ -74,7 +80,7 @@ public class Plan {
 	public void setMember(Member member) {
 		this.member = member;
 	}
-	
+
 	
 
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.claim.boot.dto.PlanResponseDto;
 import com.claim.boot.model.Plan;
 
 import com.claim.boot.service.PlanService;
@@ -37,12 +38,13 @@ public class PlanController {
 	}
 	
 	@GetMapping("/all")
-	public List<Plan>getAllPlansByUsername(Principal principal) {
+	public List<PlanResponseDto> getAllPlansByUsername(Principal principal) {
 		String username=principal.getName();
 		
 		return planService.getAllPlansByUsername(username);
 		
 	}
+	
 	
 	
 }

@@ -1,6 +1,8 @@
 package com.claim.boot.controller;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
@@ -18,8 +20,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.claim.boot.dto.ClaimResponseDto;
 import com.claim.boot.model.Claim;
 import com.claim.boot.model.Document;
+import com.claim.boot.model.Member;
+import com.claim.boot.model.Plan;
+import com.claim.boot.repository.ClaimRepository;
+import com.claim.boot.repository.MemberRepository;
 import com.claim.boot.service.ClaimService;
 import com.claim.boot.service.DocumentService;
 
@@ -34,6 +41,12 @@ public class ClaimController {
 	@Autowired
 	private DocumentService documentService;
 
+	@Autowired
+	private ClaimRepository claimRepository;
+
+	@Autowired
+	private MemberRepository memberRepository;
+
 	// To Insert Claim
 	@PostMapping("/add/{pId}")
 	public ResponseEntity<String> addClaim(Principal principal, @RequestBody Claim claim,
@@ -43,10 +56,9 @@ public class ClaimController {
 	}
 
 	// Upload document
-	@PostMapping("/upload/{cId}")
-	public ResponseEntity<String> uploadMultipleFiles(@RequestParam("file") MultipartFile file,
-			@PathVariable("cId") Long cId, Principal principal) {
-		return documentService.saveFile(file, cId);
+	@PostMapping("/upload")
+	public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
+		return documentService.saveFile(file);
 
 	}
 
@@ -60,4 +72,26 @@ public class ClaimController {
 
 	}
 
+	// To get All Claims By Username
+	@GetMapping("/all")
+	public List<ClaimResponseDto> getAllClaims(Principal principal) {
+		String username = principal.getName();
+		List<Claim> list = claimRepository.getAllClaimsByUsername(username);
+
+		List<ClaimResponseDto> listDto = new ArrayList<ClaimResponseDto>();
+		Long planId;
+		for (Claim c : list) {
+			ClaimResponseDto dto = new ClaimResponseDto();
+			dto.setClaimId(c.getClaimId());
+			dto.setClaimAmount(c.getClaimAmount());
+			Plan p = c.getPlan();
+			planId = p.getPlanId();
+			dto.setPlanId(planId);
+			dto.setRemarks(c.getRemarks());
+			dto.setClaimDate(c.getClaimDate());
+			dto.setStatus(c.getStatus());
+			listDto.add(dto);
+		}
+		return listDto;
+	}
 }

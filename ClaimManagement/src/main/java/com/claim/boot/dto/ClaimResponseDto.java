@@ -6,28 +6,22 @@ import com.claim.boot.enums.ClaimStatusEnum;
 
 public class ClaimResponseDto {
 	private Long claimId;
-	private Long memberId;
-	private String claimType;
+	private Long planId;
 	private double claimAmount;
 	private ClaimStatusEnum status; 
 	private LocalDate claimDate;
+	private String remarks;
 	public Long getClaimId() {
 		return claimId;
 	}
 	public void setClaimId(Long claimId) {
 		this.claimId = claimId;
 	}
-	public Long getMemberId() {
-		return memberId;
+	public Long getPlanId() {
+		return planId;
 	}
-	public void setMemberId(Long memberId) {
-		this.memberId = memberId;
-	}
-	public String getClaimType() {
-		return claimType;
-	}
-	public void setClaimType(String claimType) {
-		this.claimType = claimType;
+	public void setPlanId(Long planId) {
+		this.planId = planId;
 	}
 	public double getClaimAmount() {
 		return claimAmount;
@@ -47,6 +41,10 @@ public class ClaimResponseDto {
 	public void setClaimDate(LocalDate claimDate) {
 		this.claimDate = claimDate;
 	}
-	
-		
+	public String getRemarks() {
+		return remarks;
+	}
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
 }
