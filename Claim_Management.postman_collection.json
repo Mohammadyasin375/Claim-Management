@@ -35,13 +35,13 @@
 						"auth": {
 							"type": "basic",
 							"basic": {
-								"password": "yasin@123",
-								"username": "yasin@gmail.com"
+								"password": "harry@123",
+								"username": "harry@gmail.com"
 							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8091/api/member/get"
+						"url": "http://localhost:8091/api/member/details"
 					},
 					"response": []
 				},
@@ -51,13 +51,13 @@
 						"auth": {
 							"type": "basic",
 							"basic": {
-								"password": "waesly@123",
-								"username": "ronald@gmail.com"
+								"password": "hermione@123",
+								"username": "hermione@gmail.com"
 							}
 						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8091/api/member/getAll"
+						"url": "http://localhost:8091/api/member/all"
 					},
 					"response": []
 				},
@@ -121,14 +121,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"claimAmount\":150000.0,\r\n    \"claimType\":\"Dengue\",\r\n    \"claimDate\":\"2023-06-12\",\r\n    \"hospitalName\":\"Cooper Hospital\",\r\n    \"admitDate\":\"2023-03-12\",\r\n    \"dischargeDate\":\"2023-06-03\"\r\n}",
+							"raw": "{\r\n    \"claimAmount\":20000.0,\r\n    \"claimType\":\"Fewer\",\r\n    \"claimDate\":\"2023-06-12\",\r\n    \"hospitalName\":\"Cooper Hospital\",\r\n    \"admitDate\":\"2023-03-12\",\r\n    \"dischargeDate\":\"2023-06-03\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "http://localhost:8091/api/claim/add"
+						"url": "http://localhost:8091/api/claim/add/17"
 					},
 					"response": []
 				},
@@ -201,7 +201,7 @@
 						},
 						"method": "GET",
 						"header": [],
-						"url": "http://localhost:8091/api/claim/getAllByUsername"
+						"url": "http://localhost:8091/api/claim/all"
 					},
 					"response": []
 				},
@@ -216,7 +216,7 @@
 								{
 									"key": "file",
 									"type": "file",
-									"src": "/C:/Users/user/Downloads/Exam/Final Spring Cloud.pdf"
+									"src": "/C:/Users/user/Downloads/Exam/Azure_MCQ.txt"
 								}
 							]
 						},
@@ -236,7 +236,7 @@
 							"mode": "formdata",
 							"formdata": []
 						},
-						"url": "http://localhost:8091/api/claim/document/8"
+						"url": "http://localhost:8091/api/claim/document/1"
 					},
 					"response": []
 				}
@@ -267,15 +267,15 @@
 						"auth": {
 							"type": "basic",
 							"basic": {
-								"password": "waesly@123",
-								"username": "ronald@gmail.com"
+								"password": "yasin@123",
+								"username": "yasin@gmail.com"
 							}
 						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"planName\":\"Life Insurance\",\r\n    \"insuredAmount\":150000.0,\r\n    \"startDate\":\"2022-12-10\",\r\n    \"endDate\":\"2023-12-10\"\r\n}",
+							"raw": "{\r\n    \"planType\":\"LifeTerm\",\r\n    \"insuredAmount\":700000.0,\r\n    \"startDate\":\"2022-12-10\",\r\n    \"endDate\":\"2023-12-10\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
