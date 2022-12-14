@@ -1,7 +1,9 @@
+
 export class Plan{
     planId?:number;
-    planName:string;
+    planType:string;
     insuredAmount:number;
     startDate:string;
     endDate:string;
+
 }

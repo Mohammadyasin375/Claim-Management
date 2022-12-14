@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Claim } from 'src/app/model/claim.model';
-import { AllclaimsService } from 'src/app/service/allclaims.service';
+import { ClaimsService } from 'src/app/service/claim.service';
 
 @Component({
   selector: 'app-all-claims',
@@ -11,11 +11,11 @@ export class AllClaimsComponent implements OnInit {
 
   claim:Claim[];
 
-  constructor(private allClaimsService:AllclaimsService) { }
+  constructor(private claimsService:ClaimsService) { }
 
   ngOnInit(): void {
     let token = localStorage.getItem('token');
-    this.allClaimsService.getAllClaims(token).subscribe({
+    this.claimsService.getAllClaims(token).subscribe({
       next: (data)=>{
         this.claim = data;
       },

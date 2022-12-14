@@ -1,43 +1,65 @@
-<section>
-    <div class="row ">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-3" id="container">
-            <h1 id="heading">Add Plan</h1>
-            <div id="signupbody">
-                <form>
-                    <div class="mb-2">
-                        <label for="inputClaim" class="form-label">Plan Type</label>
-                        <select id="inputCalim" class="form-select">
-                            <option selected>Choose..</option>
-                            <option>Health Insurance</option>
-                            <option>Life Insurance</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="inputClaimAmount" class="form-label">Insured Amount</label>
-                        <input type="text" class="form-control" id="inputClaimamount">
-                    </div>
-
-                
-                    <div class="mb-3">
-                        <label for="exampleadmdate" class="form-label">Start Date</label>
-                        <input type="date" class="form-control" id="exampleadmdate" aria-describedby="dateHelp">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampledisdate" class="form-label">End Date</label>
-                        <input type="date" class="form-control" id="exampledisdate" aria-describedby="dateHelp">
-                    </div>
-
-                    
-                    <div class="mb-3">
-                        <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
-                    </div>
-                </form>
+<div class="signup-section">
+    <form [formGroup]="addPlanForm" (submit)="onSubmitPlan()">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 signup">
+        <div class="card">
+          <h5 class="card-header">Add Plan</h5>
+          <div class="card-body">
+            <div class="mb-3 alert alert-primary" *ngIf="msg">
+                {{msg}}
             </div>
-        </div>
-        <div class="col-sm-7">
-            <img [src]="ImagePath" id="add-claim-img">
-        </div>
-    </div>
-</section>
+            
+            <div class="mb-3">
+                Plan Type:
+                <select class="form-control" formControlName="planType">
+                  <option *ngFor="let p of planType" value="{{p}}">
+                    {{p}}
+                  </option>
+                </select>
+                <span class="error_msg" *ngIf="addPlanForm.controls['planType'].touched &&
+                addPlanForm.controls['planType'].invalid">
+                  <span *ngIf="addPlanForm.controls['planType'].errors['required']">Select Plan Type</span>
+                 </span>
+            </div>
+            
+            
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Start Date</label>
+                <input type="date" class="form-control" formControlName="startDate">
+                <span class="error_msg" *ngIf="addPlanForm.controls['startDate'].touched &&
+                addPlanForm.controls['startDate'].invalid">
+                  <span *ngIf="addPlanForm.controls['startDate'].errors['required']">State Date required</span>
+                  <span *ngIf="addPlanForm.controls['startDate'].errors['pattern']">End Date required</span>
+                </span>
+              </div>
 
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">End Date</label>
+                <input type="date" class="form-control" formControlName="endDate">
+                <span class="error_msg" *ngIf="addPlanForm.controls['endDate'].touched && addPlanForm.controls['endDate'].invalid">
+                  <span *ngIf="addPlanForm.controls['endDate'].errors['required']">end Date required</span>
+                  <span *ngIf="addPlanForm.controls['endDate'].errors['pattern']">end Date required</span>
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Insured Amount</label>
+                <input type="number" class="form-control" formControlName="insuredAmount">
+                <span class="error_msg" *ngIf="addPlanForm.controls['insuredAmount'].touched && addPlanForm.controls['insuredAmount'].invalid">
+                  <span *ngIf="addPlanForm.controls['insuredAmount'].errors['required']">Amount is required</span>
+                  <span *ngIf="addPlanForm.controls['insuredAmount'].errors['pattern']">Amount is required</span>
+                </span>
+            </div>
+            
+            <div class="mb-3">
+                <input type="submit" class="btn btn-primary" value="Submit" [disabled]="!addPlanForm.valid">
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+    </form>
+  </div>

@@ -1,48 +1,81 @@
-<section>
-    <div class="row ">
-        <div class="col-sm-1"></div>
-        <div class="col-sm-3" id="container">
-            <h1 id="heading">Add Claim</h1>
-            <div id="signupbody">
-                <form>
-                    <div class="mb-2">
-                        <label for="inputClaim" class="form-label">Claim Type</label>
-                        <select id="inputCalim" class="form-select">
-                            <option selected>Choose..</option>
-                            <option>Health Insurance</option>
-                            <option>Life Insurance</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="inputClaimAmount" class="form-label">Claim Amount</label>
-                        <input type="text" class="form-control" id="inputClaimamount">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="inputAddress" class="form-label">Hospital Name</label>
-                        <input type="text" class="form-control" id="inputAddress">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleadmdate" class="form-label">Admit Date</label>
-                        <input type="date" class="form-control" id="exampleadmdate" aria-describedby="dateHelp">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampledisdate" class="form-label">Discharge Date</label>
-                        <input type="date" class="form-control" id="exampledisdate" aria-describedby="dateHelp">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="formFileDisabled" class="form-label">Upload Document</label>
-                        <input class="form-control" type="file" id="formFileDisabled" />
-                    </div>
-                    <div class="mb-3">
-                        <button type="submit" class="btn btn-primary" id="submit-btn">Submit</button>
-                    </div>
-                </form>
+<div class="signup-section">
+    <form [formGroup]="applyClaimForm" (submit)="onSubmitClaim()">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 signup">
+        <div class="card">
+          <h5 class="card-header">Apply Claim</h5>
+          <div class="card-body">
+            <!-- <div class="mb-3 alert alert-primary" *ngIf="msg">
+                {{msg}}
+            </div> -->
+            
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Plan ID</label>
+                <input type="number" class="form-control" formControlName="planId">
+                <span class="error_msg" *ngIf="applyClaimForm.controls['planId'].touched && applyClaimForm.controls['planId'].invalid">
+                  <span *ngIf="applyClaimForm.controls['planId'].errors['required']">Amount is required</span>
+                  <span *ngIf="applyClaimForm.controls['planId'].errors['pattern']">Amount is required</span>
+                </span>
             </div>
+            
+            
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Admit Date</label>
+                <input type="date" class="form-control" formControlName="admitDate">
+                <span class="error_msg" *ngIf="applyClaimForm.controls['admitDate'].touched &&
+                applyClaimForm.controls['admitDate'].invalid">
+                  <span *ngIf="applyClaimForm.controls['admitDate'].errors['required']">State Date required</span>
+                  <span *ngIf="applyClaimForm.controls['admitDate'].errors['pattern']">End Date required</span>
+                </span>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Discharge Date</label>
+                <input type="date" class="form-control" formControlName="dischargeDate">
+                <span class="error_msg" *ngIf="applyClaimForm.controls['dischargeDate'].touched && applyClaimForm.controls['dischargeDate'].invalid">
+                  <span *ngIf="applyClaimForm.controls['dischargeDate'].errors['required']">Filed is required</span>
+                  <span *ngIf="applyClaimForm.controls['dischargeDate'].errors['pattern']">Field is required</span>
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Claim Amount</label>
+                <input type="number" class="form-control" formControlName="claimAmount">
+                <span class="error_msg" *ngIf="applyClaimForm.controls['claimAmount'].touched && applyClaimForm.controls['claimAmount'].invalid">
+                  <span *ngIf="applyClaimForm.controls['claimAmount'].errors['required']">Amount is required</span>
+                  <span *ngIf="applyClaimForm.controls['claimAmount'].errors['pattern']">Amount is required</span>
+                </span>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Hospital Name</label>
+                <input type="text" class="form-control" formControlName="hospitalName">
+                <span class="error_msg" *ngIf="applyClaimForm.controls['hospitalName'].touched && applyClaimForm.controls['hospitalName'].invalid">
+                  <span *ngIf="applyClaimForm.controls['hospitalName'].errors['required']">Field is required</span>
+                  <span *ngIf="applyClaimForm.controls['hospitalName'].errors['pattern']">Field is required</span>
+                </span>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Upload Medical Report</label>
+                <input type="file" class="form-control" (change)="getFile($event)"><br/>
+                <!-- <span class="error_msg" *ngIf="applyClaimForm.controls['document'].touched && applyClaimForm.controls['document'].invalid">
+                  <span *ngIf="applyClaimForm.controls['document'].errors['required']">Field is required</span>
+                  <span *ngIf="applyClaimForm.controls['document'].errors['pattern']">Field is required</span>
+                </span> -->
+            </div>
+
+            
+            <div class="mb-3">
+                <input type="submit" class="btn btn-primary" value="Submit" [disabled]="!applyClaimForm.valid">
+            </div>
+            
+          </div>
         </div>
-        <div class="col-sm-7">
-            <img [src]="ImagePath" id="add-claim-img">
-        </div>
+      </div>
+      <div class="col-md-4"></div>
     </div>
-</section>
+    </form>
+  </div>

@@ -1,10 +1,12 @@
 export class Claim{
     claimId?: number;
     planId?: number;
-    claimType?:string;
     claimAmount?: number;
     status?: string;
     claimDate?: string;
+    admitDate?:string;
+    dischargeDate?:string;
+    hospitalName?:string;
     remarks?: string;
   }
   
