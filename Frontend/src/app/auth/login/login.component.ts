@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-
+  
   onLogin(){
     //Call Login API
     let username = this.loginForm.value.username;

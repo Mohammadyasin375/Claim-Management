@@ -1,0 +1,44 @@
+<div class="title_box">
+    <label>Claim ID</label>&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;
+
+    <label>Plan ID</label>&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;
+
+    <label>Claim Type</label>&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;
+
+    <label>Claim Amount</label>&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;
+
+    <label>Claim Date</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <label>Status</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <label>Remarks</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+
+<div >
+    <ul *ngFor="let c of claim">
+        <li class="claimslist">
+            {{c.claimId}}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {{c.planId}}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {{c.claimType}}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {{c.claimAmount}}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {{c.claimDate}}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {{c.status}}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {{c.remarks}}
+            <!-- &nbsp;&nbsp;&nbsp;
+            <button class= "button1" (click)="selectFlight(f.id)">BOOK</button> -->
+        </li>
+    </ul>
+</div>

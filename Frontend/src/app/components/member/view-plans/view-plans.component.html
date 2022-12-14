@@ -1,1 +1,33 @@
-<p>view-plans works!</p>
+<div class="title_box">
+    <label>Plan ID</label>&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;
+
+    <label>Plan Name</label>&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;
+
+    <label>Insured Amount</label>&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;
+
+    <label>Start Date</label>&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;
+
+    <label>End Date</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</div>
+
+<div >
+    <ul *ngFor="let p of plan">
+        <li class="planslist">
+            {{p.planId}}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {{p.planName}}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {{p.insuredAmount}}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {{p.startDate}}
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            {{p.endDate}}
+        </li>
+    </ul>
+</div>

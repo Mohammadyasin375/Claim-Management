@@ -1,0 +1,16 @@
+#heading{
+    margin-top: 10%;
+    color: #412a27;
+}
+#submit-btn{
+    margin-top: 3%;
+    background-color: #412a27;
+    border-color: #412a27;
+    width: 30%;
+}
+#add-claim-img{
+    margin-top: 10%;
+    margin-left: 5%;
+    height: 600px;
+    width: 1000px;
+}

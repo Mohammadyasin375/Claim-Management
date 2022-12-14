@@ -15,6 +15,7 @@ import { ViewPlansComponent } from './components/member/view-plans/view-plans.co
 import { AddPlanComponent } from './components/member/add-plan/add-plan.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { ViewClaimsComponent } from './components/admin/view-claims/view-claims.component';
+import { AllClaimsComponent } from './components/member/all-claims/all-claims.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ViewClaimsComponent } from './components/admin/view-claims/view-claims.
     ViewPlansComponent,
     AddPlanComponent,
     AdminComponent,
-    ViewClaimsComponent
+    ViewClaimsComponent,
+    AllClaimsComponent
   ],
   imports: [
     BrowserModule,

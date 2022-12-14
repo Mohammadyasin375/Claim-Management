@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddPlanComponent implements OnInit {
 
-  constructor() { }
+  ImagePath: string;
+  constructor() { this.ImagePath = '/assets/images/add-claim.jpg'}
 
   ngOnInit(): void {
   }

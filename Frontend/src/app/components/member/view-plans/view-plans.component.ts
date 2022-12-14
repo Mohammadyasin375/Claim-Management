@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Plan } from 'src/app/model/plan.model';
+import { ViewplansService } from 'src/app/service/viewplans.service';
 
 @Component({
   selector: 'app-view-plans',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewPlansComponent implements OnInit {
 
-  constructor() { }
+  plan:Plan[];
+  constructor(private viewPlansService:ViewplansService) { }
 
   ngOnInit(): void {
+    let token = localStorage.getItem('token');
+    this.viewPlansService.getAllPlans(token).subscribe({
+      next: (data)=>{
+        this.plan = data;
+      },
+      error: (err)=>{}
+    });
   }
 
 }

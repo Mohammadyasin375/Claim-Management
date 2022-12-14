@@ -21,6 +21,15 @@ export class NavbarComponent implements OnInit {
     })
   }
 
+  // goToHome(){
+  //   if(this.user.role=='MEMBER'){
+  //     this.router.navigateByUrl('/admin');
+  //   }
+  //   else{
+  //     this.router.navigateByUrl('/member');
+  //   }
+  // }
+
   logout(){
     localStorage.clear();
     this.authService.msg$.next('Your have Logged Out!!');
