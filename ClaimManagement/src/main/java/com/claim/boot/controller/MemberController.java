@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.claim.boot.dto.MemberResponseDto;
 import com.claim.boot.dto.MessageDto;
 import com.claim.boot.model.Member;
+import com.claim.boot.repository.MemberRepository;
 import com.claim.boot.service.MemberService;
 
 @RestController

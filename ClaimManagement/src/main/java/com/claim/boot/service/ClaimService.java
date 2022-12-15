@@ -1,5 +1,6 @@
 package com.claim.boot.service;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,7 @@ public class ClaimService {
 		
 		Member member = memberRepository.getMemberByUsername(username);
 
-		
+		claim.setClaimDate(LocalDate.now());
 		claim.setMember(member);
 		claim.setStatus(ClaimStatusEnum.PENDING);
 		
@@ -45,8 +46,6 @@ public class ClaimService {
 		
 		Plan plan=optional.get();
 		claim.setPlan(plan);
-		
-		
 		
         claimRepository.save(claim);
 		return ResponseEntity.status(HttpStatus.OK).body("Claim Submitted Successfully!");

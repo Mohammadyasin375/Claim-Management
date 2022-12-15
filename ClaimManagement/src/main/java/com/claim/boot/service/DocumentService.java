@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.claim.boot.model.Claim;
 import com.claim.boot.model.Document;
 import com.claim.boot.model.Member;
 import com.claim.boot.repository.ClaimRepository;
@@ -30,8 +31,6 @@ public class DocumentService {
 	public ResponseEntity<String> saveFile(MultipartFile file,String username) {
 		String docName = file.getOriginalFilename();
 		Member member = memberRepository.getMemberByUsername(username);
-		
-		
 		
 		try {
 			Document document = new Document(docName, file.getContentType(), file.getBytes());

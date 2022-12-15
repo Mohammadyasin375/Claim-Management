@@ -38,17 +38,6 @@ public class Claim {
 	
 	@ManyToOne
 	private Plan plan;
-	
-	@OneToOne
-	private Document document;
-
-	public Document getDocument() {
-		return document;
-	}
-
-	public void setDocument(Document document) {
-		this.document = document;
-	}
 
 	public long getClaimId() {
 		return claimId;

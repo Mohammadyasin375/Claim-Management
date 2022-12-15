@@ -22,7 +22,7 @@ public class Document {
 	
 	@ManyToOne
 	private Member member;
-	
+
 	public Member getMember() {
 		return member;
 	}
