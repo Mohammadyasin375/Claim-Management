@@ -1,33 +1,35 @@
-<div class="title_box">
-    <label>Plan ID</label>&nbsp;
-     &nbsp;&nbsp;&nbsp;&nbsp;
+<div class="card text-center">
+    <div class="card-header">
+        <h1>ALL PLANS</h1>
+    </div>
+    <div class="card-body">
+        <table class="table table-dark table-striped-columns">
+            <thead>
+              <tr>
+                <th scope="col"><label>Plan ID</label></th>
+                <th scope="col"><label>Plan Type</label></th>
+                <th scope="col"><label>Insured Amount</label></th>
+                <th scope="col"><label>Start Date</label></th>
+                <th scope="col"><label>End Date</label></th>
+              </tr>
+            </thead>
+            
+            <tbody>
+                
+                <tr *ngFor="let c of plan">
+                  <td>{{c.planId}}</td>
+                  <td>{{c.planType}}</td>
+                  <td>{{c.insuredAmount}}</td>
+                  <td>{{c.startDate}}</td>
+                  <td>{{c.endDate}}</td>
+                 
+                </tr>
+                  
+                
+            </tbody>
+          </table>
+    </div>
+    <div class="col-md-3">
 
-    <label>Plan Type</label>&nbsp;
-     &nbsp;&nbsp;&nbsp;&nbsp;
-
-    <label>Insured Amount</label>&nbsp;
-     &nbsp;&nbsp;&nbsp;&nbsp;
-
-    <label>Start Date</label>&nbsp;
-     &nbsp;&nbsp;&nbsp;&nbsp;
-
-    <label>End Date</label>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-</div>
-
-<div >
-    <ul *ngFor="let p of plan">
-        <li class="planslist">
-            {{p.planId}}
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            {{p.planType}}
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            {{p.insuredAmount}}
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            {{p.startDate}}
-            &nbsp;&nbsp;&nbsp;&nbsp;
-            {{p.endDate}}
-        </li>
-    </ul>
+    </div>
 </div>

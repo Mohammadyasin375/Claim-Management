@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Claim } from '../model/claim.model';
+import { Plan } from '../model/plan.model';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -28,7 +29,17 @@ export class ClaimsService {
   }
 
 
-  postDocument(formData:FormData){
-    return this.http.post(environment.serverUrl +'/claim/upload',formData);
+  postDocument(token:string,formData:FormData){
+    let header = {
+      'Authorization' : 'Basic ' + token
+    }
+    return this.http.post(environment.serverUrl +'/claim/upload',formData,{headers: header});
+  }
+
+  getAllClaimsInDb(token:string):Observable<Claim[]>{
+    let header = {
+      'Authorization' : 'Basic ' + token
+    }
+    return this.http.get<Claim[]>(environment.serverUrl +'/claim/getAllFromDb',{headers: header});
   }
 }

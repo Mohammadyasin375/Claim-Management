@@ -1,1 +1,36 @@
-<p>view-claims works!</p>
+<div class="card text-center">
+    <div class="card-header">
+        <h1>ALL CLAIMS</h1>
+    </div>
+    <div class="card-body">
+        <table class="table table-dark table-striped-columns">
+            <thead>
+              <tr>
+                <th scope="col"><label>Claim ID</label></th>
+                <th scope="col"><label>Plan ID</label></th>
+                <th scope="col"><label>Claim Amount</label></th>
+                <th scope="col"><label>Claim Date</label></th>
+                <th scope="col"><label>Status</label></th>
+                <th scope="col"><label>Remarks</label></th>    
+              </tr>
+            </thead>
+            
+            <tbody>
+                
+                <tr *ngFor="let c of claim">
+                  <td>{{c.claimId}}</td>
+                  <td>{{c.planId}}</td>
+                  <td>{{c.claimAmount}}</td>
+                  <td>{{c.claimDate}}</td>
+                  <td>{{c.status}}</td>
+                  <td>{{c.remarks}}</td>
+                </tr>
+                  
+                
+            </tbody>
+          </table>
+    </div>
+    <div class="col-md-3">
+
+    </div>
+</div>

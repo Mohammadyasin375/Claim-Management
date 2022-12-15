@@ -1,26 +1,86 @@
-
 <div>
-<div class="col-md-12">
-  <app-navbar></app-navbar>
-</div>
-
+  <!-- <div class="col-md-12">
+    <app-navbar></app-navbar>
+  </div> -->
 <div>
     <div class="row">
         <div class="col-md-3 sidebar">
           <div >
-              <img src="../../../assets/images/user.png" class="user-logo">
+              <!-- <img src="../../../assets/images/user.png" class="user-logo"> -->
   
-              <span class="welcome-msg"> Welcome {{member?.memberName}} </span>
+              <!-- <span class="welcome-msg"> Welcome {{admin?.name}} </span> -->
           </div>
           <div>
             <br>
-            <ul >
-              <li><a class="list-group-item" routerLink="/member/profile">Profile</a> </li>
-              <li>  <a class="list-group-item" routerLink="/member/apply-claim">Add Claim</a>  </li>
-              <li>  <a class="list-group-item" routerLink="/member/all-claim">View All Claims</a>  </li>
-              <li> <a class="list-group-item" routerLink="/member/view-plans">View All Plans</a>  </li>
-              <li> <a class="list-group-item" routerLink="/member/add-plan">Add Plan</a>  </li>
+            <html>
+  <head>
+ 
+  </head>
+  <body><div class="area"></div><nav class="main-menu">
+            <ul>
+                <li>
+                    <a href="/member/profile">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                            Profile
+                        </span>
+                    </a>
+                  
+                </li>
+                <li class="has-subnav">
+                    <a href="/member/apply-claim">
+                        <i class="fa fa-laptop fa-2x"></i>
+                        <span class="nav-text">
+                            Add Claim
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="/member/all-claim">
+                       <i class="fa fa-list fa-2x"></i>
+                        <span class="nav-text">
+                            All Claims
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="/member/view-plans">
+                       <i class="fa fa-folder-open fa-2x"></i>
+                        <span class="nav-text">
+                            View All Plans
+                        </span>
+                    </a>
+                   
+                </li>
+
+                <li class="has-subnav">
+                  <a href="/member/add-plan">
+                     <i class="fa fa-folder-open fa-2x"></i>
+                      <span class="nav-text">
+                          Add Plan
+                      </span>
+                  </a>
+                 
+              </li>
+                
+                
             </ul>
+
+            <ul class="logout">
+                <li>
+                   <a href="#">
+                         <i class="fa fa-power-off fa-2x"></i>
+                        <span class="nav-text">
+                            Logout
+                        </span>
+                    </a>
+                </li>  
+            </ul>
+        </nav>
+  </body>
+    </html>
           </div>
   
         </div>

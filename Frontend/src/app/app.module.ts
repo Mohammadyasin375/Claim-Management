@@ -16,6 +16,8 @@ import { AddPlanComponent } from './components/member/add-plan/add-plan.componen
 import { AdminComponent } from './components/admin/admin.component';
 import { ViewClaimsComponent } from './components/admin/view-claims/view-claims.component';
 import { AllClaimsComponent } from './components/member/all-claims/all-claims.component';
+import { AllMembersComponent } from './components/admin/all-members/all-members.component';
+import { ApproveClaimComponent } from './components/admin/approve-claim/approve-claim.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { AllClaimsComponent } from './components/member/all-claims/all-claims.co
     AddPlanComponent,
     AdminComponent,
     ViewClaimsComponent,
-    AllClaimsComponent
+    AllClaimsComponent,
+    AllMembersComponent,
+    ApproveClaimComponent
   ],
   imports: [
     BrowserModule,

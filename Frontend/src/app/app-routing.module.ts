@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { AllMembersComponent } from './components/admin/all-members/all-members.component';
+import { ApproveClaimComponent } from './components/admin/approve-claim/approve-claim.component';
 import { ViewClaimsComponent } from './components/admin/view-claims/view-claims.component';
 import { AddPlanComponent } from './components/member/add-plan/add-plan.component';
 import { AllClaimsComponent } from './components/member/all-claims/all-claims.component';
@@ -24,7 +26,9 @@ const routes: Routes = [
   ]},
   {path:'admin',component:AdminComponent,children:[
     {path:'profile',component:ProfileComponent},
-    {path:'view-claims',component:ViewClaimsComponent}
+    {path:'view-claims',component:ViewClaimsComponent},
+    {path:'approve-claim',component:ApproveClaimComponent},
+    {path:'all-members',component:AllMembersComponent}
   ]}
 ];
 

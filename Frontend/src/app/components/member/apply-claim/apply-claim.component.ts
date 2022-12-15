@@ -64,8 +64,9 @@ export class ApplyClaimComponent implements OnInit {
     let formData = new FormData();
     formData.set('file',this.file);
 
-    this.claimService.postDocument(formData).subscribe({
+    this.claimService.postDocument(token,formData).subscribe({
       next: (data)=>{
+        console.log(this.file)
         this.authService.msg$.next('Claim Submitted!!')
       },
       error: (err)=>{

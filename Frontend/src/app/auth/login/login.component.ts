@@ -11,10 +11,13 @@ import { AuthService } from 'src/app/service/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  ImagePath: string;
   msg: string;
   loginForm: FormGroup;
   user :User;
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {
+    this.ImagePath = '/assets/images/LoginPageimg.png'
+  }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({

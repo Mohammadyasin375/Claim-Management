@@ -1,0 +1,38 @@
+<div class="card text-center">
+    <div class="card-header">
+        <h1>ALL MEMBERS</h1>
+    </div>
+    <div class="card-body">
+        <table class="table table-dark table-striped-columns">
+            <thead>
+              <tr>
+                <th scope="col"><label>Member ID</label></th>
+                <th scope="col"><label>Name</label></th>
+                <th scope="col"><label>Date of Birth</label></th>
+                <th scope="col"><label>MobileNo</label></th>
+                <th scope="col"><label>City</label></th>
+                <th scope="col"><label>State</label></th>   
+                <th scope="col"><label>Address</label></th> 
+              </tr>
+            </thead>
+            
+            <tbody>
+                
+                <tr *ngFor="let m of member">
+                  <td>{{m.id}}</td>
+                  <td>{{m.memberName}}</td>
+                  <td>{{m.dob}}</td>
+                  <td>{{m.mobileNo}}</td>
+                  <td>{{m.city}}</td>
+                  <td>{{m.state}}</td>
+                  <td>{{m.address}}</td>
+                </tr>
+                  
+                
+            </tbody>
+          </table>
+    </div>
+    <div class="col-md-3">
+
+    </div>
+</div>

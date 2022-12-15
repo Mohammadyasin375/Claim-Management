@@ -8,5 +8,6 @@ export class Claim{
     dischargeDate?:string;
     hospitalName?:string;
     remarks?: string;
+    memberId?:number;
   }
   

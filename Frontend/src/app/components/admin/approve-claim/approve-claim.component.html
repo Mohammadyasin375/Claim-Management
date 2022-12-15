@@ -1,0 +1,31 @@
+
+<div class="form">
+    <form #searchClaim="ngForm" (submit)="searchSubmit(searchClaim)">
+
+      <label>Claim Id </label>
+      <input type="number" name="claimId" ngModel #claimId="ngModel"><br/><br/>
+
+      <input type="submit" value="Get Details">
+
+    </form>
+</div>
+
+<div class="title_box">
+    <label>Claim Id               </label>&nbsp;{{claim.claimId}}<br/>
+    <label>Plan Id                </label>&nbsp;{{claim.planId}}<br/>
+
+    <label>Member Id               </label>&nbsp;{{claim.memberId}}<br/>
+
+    <label>Claim Amount                </label>&nbsp; {{claim.claimAmount}}<br/>
+
+    <label>Claim Date               </label>&nbsp;{{claim.claimDate}}<br/>
+    
+    <label>Status                  </label> {{claim.status}}<br/>
+
+     <label>Remarks                </label>{{claim.remarks}}<br/>
+     <label>View Document</label><button (click)="downloadFile()">View DOC</button></div>
+
+     <!-- <button (click)="Approve()">Approve</button>  -->
+
+
+
