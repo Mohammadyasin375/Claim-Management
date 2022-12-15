@@ -19,6 +19,17 @@ public class Document {
 	
 	@Lob
 	private byte[] data;
+	
+	@ManyToOne
+	private Member member;
+	
+	public Member getMember() {
+		return member;
+	}
+
+	public void setMember(Member member) {
+		this.member = member;
+	}
 
 	public Long getDocumentId() {
 		return documentId;

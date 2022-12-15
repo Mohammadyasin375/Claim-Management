@@ -57,8 +57,9 @@ public class ClaimController {
 
 	// Upload document
 	@PostMapping("/upload")
-	public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
-		return documentService.saveFile(file);
+	public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file,Principal principal) {
+		String username = principal.getName();
+		return documentService.saveFile(file,username);
 
 	}
 

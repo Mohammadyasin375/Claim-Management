@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -37,7 +38,17 @@ public class Claim {
 	
 	@ManyToOne
 	private Plan plan;
+	
+	@OneToOne
+	private Document document;
 
+	public Document getDocument() {
+		return document;
+	}
+
+	public void setDocument(Document document) {
+		this.document = document;
+	}
 
 	public long getClaimId() {
 		return claimId;

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.claim.boot.enums.ClaimStatusEnum;
 import com.claim.boot.model.Claim;
+import com.claim.boot.model.Document;
 import com.claim.boot.model.Member;
 import com.claim.boot.model.Plan;
 import com.claim.boot.repository.ClaimRepository;
@@ -31,8 +32,10 @@ public class ClaimService {
 	private ClaimRepository claimRepository;
 	
 	public ResponseEntity<String> insertClaim(String username,Claim claim,Long pId) {
+		
 		Member member = memberRepository.getMemberByUsername(username);
 
+		
 		claim.setMember(member);
 		claim.setStatus(ClaimStatusEnum.PENDING);
 		
@@ -42,6 +45,8 @@ public class ClaimService {
 		
 		Plan plan=optional.get();
 		claim.setPlan(plan);
+		
+		
 		
         claimRepository.save(claim);
 		return ResponseEntity.status(HttpStatus.OK).body("Claim Submitted Successfully!");
