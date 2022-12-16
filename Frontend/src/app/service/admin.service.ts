@@ -26,13 +26,25 @@ export class AdminService {
     }
     return this.http.get<Member[]>(environment.serverUrl + '/member/all', {headers: header});
   }
+  
+
+  public updateStatusA(status:string,claimId:number):Observable<any>{
+    // let header = {
+    //   'Authorization' : 'Basic ' + token
+    // }
+    return this.http.post(environment.serverUrl +'/admin/approval/'+status+'/'+claimId,claimId);
+  }
+
+  public updateStatusR(status:string,claimId:number):Observable<any>{
+    // let header = {
+    //   'Authorization' : 'Basic ' + token
+    // }
+    return this.http.post(environment.serverUrl +'/admin/approval/'+status+'/'+claimId,claimId);
+  }
+
   public getDocId(claimId:number):Observable<number>{
     return this.http.get<number>(environment.serverUrl + '/claim/getDocId/'+claimId);
   }
-
-  // public updateStatus(token:string,status:string,claimId:number){
-  //   return this.http.put(environment.serverUrl + '/admin/approval/'+status+'/'+claimId);
-  // }
 
   public downloadFile(docId:number){
     return this.http.get(environment.serverUrl + '/claim/document/'+docId,{observe:'response',responseType:'blob'});

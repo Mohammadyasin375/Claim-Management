@@ -4,5 +4,20 @@
   }
   
   .login-section{
-    background-color: lightgray;
+    background-color:lightyellow;
   }
+
+  #login-img{
+    margin-top: 10%;
+    margin-left: 15%;
+    border-radius: 1%;
+    border-top-left-radius: 27%;
+    border-bottom-right-radius: 27%;
+    box-shadow: 10px 10px 5px#412a27;
+}
+
+a{
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 5%;
+}

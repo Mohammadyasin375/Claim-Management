@@ -17,12 +17,34 @@ export class ApproveClaimComponent implements OnInit {
   msg: string;
   file:any;
 
+  st:string[];
   claimId:number;
   docId:number;
   claim:Claim;
+  status1:string='APPROVED';
+  status2:string='REJECTED';
   constructor(private adminService:AdminService,private claimService:ClaimsService,private authService: AuthService) { }
 
+  public updateButtonA(){
+    // let token = localStorage.getItem('token');
+    this.adminService.updateStatusA(this.status1,this.claimId).subscribe({
+      next: (data)=>{
+        this.authService.msg$.next('Claim Processed sucessfully!')
+      },
+      error: (err)=>{
+      }
+    });
+  }
 
+  public updateButtonR(){
+    this.adminService.updateStatusR(this.status2,this.claimId).subscribe({
+      next: (data)=>{
+        this.authService.msg$.next('Claim Processed sucessfully!')
+      },
+      error: (err)=>{
+      }
+    });
+  }
   public downloadFile():void{
     this.adminService.getDocId(this.claimId).subscribe(
       data=>{
@@ -38,14 +60,12 @@ export class ApproveClaimComponent implements OnInit {
       a.href=window.URL.createObjectURL(blob);
       a.click();
     })
+
+
   }
 
   ngOnInit(): void {
-    
-  }
-
-  Approve(){
-    
+    this.st=['APPROVED','REJECTED'];
   }
 
     searchSubmit(searchClaim: NgForm){

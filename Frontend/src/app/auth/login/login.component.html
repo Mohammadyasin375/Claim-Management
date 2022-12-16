@@ -1,7 +1,7 @@
 <div class="login-section">
   <form [formGroup]="loginForm" (submit)="onLogin()">
   <div class="row">
-    <div class="col-md-4"></div>
+    <div class="col-md-1"></div>
     <div class="col-md-4 login">
       <div class="card">
         <h5 class="card-header">Login</h5>
@@ -27,7 +27,10 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-7">
+      <img [src] ="ImagePath" id="login-img"
+      style="width: 600px;height: 400px;">
+    </div>
   </div>
 </form>
 </div>

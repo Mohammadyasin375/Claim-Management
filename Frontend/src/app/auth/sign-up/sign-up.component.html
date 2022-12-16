@@ -4,12 +4,11 @@
     <div class="col-md-4"></div>
     <div class="col-md-4 signup">
       <div class="card">
-        <h5 class="card-header">Sign Up</h5>
+        <h5 class="card-header">Sign Up - Request Access</h5>
         <div class="card-body">
           <div class="mb-3 alert alert-primary" *ngIf="msg">
               {{msg}}
           </div>
-
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Name</label>
             <input type="text" class="form-control" placeholder="Enter your name"
@@ -18,25 +17,6 @@
                         signUpForm.controls['memberName'].invalid">
               <span *ngIf="signUpForm.controls['memberName'].errors['required']">Name is required</span>
               <span *ngIf="signUpForm.controls['memberName'].errors['pattern']">Valid name is required</span>
-            </span>
-          </div>
-
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Email/Username</label>
-            <input type="email" class="form-control"  placeholder="name@example.com"
-            formControlName="username">
-            <span class="error_msg" *ngIf="signUpForm.controls['username'].touched &&
-              signUpForm.controls['username'].invalid">
-              <span *ngIf="signUpForm.controls['username'].errors['required']">Username is required</span>
-              <span *ngIf="signUpForm.controls['username'].errors['pattern']">please enter valid email</span>
-            </span>
-          </div>
-
-          <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Address</label>
-            <input type="text" class="form-control" placeholder="H.No, Land Mark, Pincode" formControlName="address">
-            <span class="error_msg" *ngIf="signUpForm.controls['address'].touched">
-              <span *ngIf="signUpForm.controls['address'].errors['required']">Field is required</span>
             </span>
           </div>
 
@@ -52,6 +32,14 @@
           </div>
 
           <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Address</label>
+            <input type="text" class="form-control" placeholder="H.No, Land Mark, Pincode" formControlName="address">
+            <span class="error_msg" *ngIf="signUpForm.controls['address'].touched">
+              <span *ngIf="signUpForm.controls['address'].errors['required']">Field is required</span>
+            </span>
+          </div>
+
+          <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">State</label>
             <input type="text" class="form-control" placeholder="Enter your State"
             formControlName="state">
@@ -61,6 +49,7 @@
               <span *ngIf="signUpForm.controls['state'].errors['pattern']">Field name is required</span>
             </span>
           </div>
+
 
           <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">City</label>
@@ -80,10 +69,21 @@
               <span *ngIf="signUpForm.controls['dob'].errors['required']">Field is required</span>
             </span>
           </div>
-
+          
+          
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Email/Username</label>
+            <input type="email" class="form-control"  placeholder="name@example.com"
+            formControlName="username">
+            <span class="error_msg" *ngIf="signUpForm.controls['username'].touched &&
+              signUpForm.controls['username'].invalid">
+              <span *ngIf="signUpForm.controls['username'].errors['required']">Username is required</span>
+              <span *ngIf="signUpForm.controls['username'].errors['pattern']">please enter valid email</span>
+            </span>
+          </div>
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Password</label>
-            <input type="password" class="form-control" placeholder="Enter you password" formControlName="password">
+            <input type="password" class="form-control" formControlName="password">
 
             <span class="error_msg" *ngIf="signUpForm.controls['password'].touched &&
               signUpForm.controls['password'].invalid">
@@ -95,14 +95,13 @@
           </div>
           <div class="mb-3">
             <label for="exampleFormControlTextarea1" class="form-label">Re-Password</label>
-          
-            <input type="password" class="form-control" placeholder="Enter your password again" formControlName="repassword">
+            <input type="password" class="form-control" formControlName="repassword">
           </div>
           <div class="mb-3">
-              <input type="submit" class="btn btn-primary" value="Sign Up" [disabled]="signUpForm.valid">
+              <input type="submit" class="btn btn-primary" value="Sign Up" [disabled]="!signUpForm.valid">
           </div>
           <div class="mb-3">
-            Already Registered? <a routerLink="">Login Here</a>
+            Already Registered? <a routerLink="/">Login Here</a>
           </div>
         </div>
       </div>
