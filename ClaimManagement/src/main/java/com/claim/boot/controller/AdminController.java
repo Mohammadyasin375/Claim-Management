@@ -20,7 +20,6 @@ import com.claim.boot.dto.AdminResponseDto;
 import com.claim.boot.model.Admin;
 
 import com.claim.boot.service.AdminService;
-import com.claim.boot.service.ClaimService;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -41,7 +40,7 @@ public class AdminController {
 		return adminService.getAllAdmins();
 	}
 
-	@PutMapping("/approval/{status}/{cId}")
+	@PostMapping("/approval/{status}/{cId}")
 	public ResponseEntity<String> approveClaim(@PathVariable("status") String status, @PathVariable("cId") Long cId) {
 		return adminService.approveClaim(status, cId);
 	}

@@ -93,13 +93,20 @@ public class AdminService {
        Claim claim = optional.get();
         
         if(claim.getClaimAmount()<claim.getPlan().getInsuredAmount()&&approvalStatus==ClaimStatusEnum.APPROVED)
-        {claim.setStatus(approvalStatus);
+        {
+        	claim.setStatus(approvalStatus);
          double balance=0;
          balance=claim.getPlan().getInsuredAmount()-claim.getClaimAmount();
          claim.getPlan().setInsuredAmount(balance);
         
         claimRepository.save(claim);
-        return ResponseEntity.status(HttpStatus.OK).body("Claim status approved!");}
+        return ResponseEntity.status(HttpStatus.OK).body("Claim status approved!");
+        }
+        if(approvalStatus==ClaimStatusEnum.REJECTED) {
+        	claim.setStatus(approvalStatus);
+        	claimRepository.save(claim);
+        	return ResponseEntity.status(HttpStatus.OK).body("Claim status Rejected!");
+        }
         
         return ResponseEntity.status(HttpStatus.OK).body("claim amt more than insured amt.");
     }
